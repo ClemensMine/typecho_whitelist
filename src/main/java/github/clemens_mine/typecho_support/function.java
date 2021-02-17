@@ -7,6 +7,9 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * @author ClemensMine
+ */
 public class function {
     static String database;
     static String prefix;
@@ -23,8 +26,13 @@ public class function {
     static File file = new File(Typecho_support.instance.getDataFolder(),"whitelist.yml");
     static FileConfiguration configuration;
 
-    // 判断该用户是否为白名单
-    // 关注着0 贡献者1 编辑2 管理3
+    /**
+     * 断该用户是否为白名单
+     * 关注着0 贡献者1 编辑2 管理3
+     * @param name 玩家名字
+     * @param gp 权限
+     * @return 是否达标
+     */
     public static Boolean judge(String name, String gp){
 
         MySQLAPI api = new MySQLAPI(address,username,pwd,database,prefix + "users");
@@ -44,7 +52,11 @@ public class function {
         return result;
     }
 
-    // 获得权重
+    /**
+     * 获得权重
+     * @param group 权限组
+     * @return 权限组权重
+     */
     public static Integer getWeight(String group){
         switch (group){
             case "subscriber":
@@ -60,7 +72,6 @@ public class function {
         }
     }
 
-    // 加载配置文件文件内容
     public static void loadConfig(){
 
         if(!file.exists()){

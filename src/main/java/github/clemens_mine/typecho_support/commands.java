@@ -10,6 +10,9 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Locale;
 
+/**
+ * @author ClemensMine
+ */
 public class commands implements CommandExecutor {
 
     static File file = new File(Typecho_support.instance.getDataFolder(),"whitelist.yml");

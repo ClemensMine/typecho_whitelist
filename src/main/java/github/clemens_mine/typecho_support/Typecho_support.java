@@ -1,6 +1,5 @@
 package github.clemens_mine.typecho_support;
 
-import org.bukkit.Color;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -9,6 +8,9 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.Locale;
 
+/**
+ * @author ClemensMine
+ */
 public final class Typecho_support extends JavaPlugin implements Listener {
 
     public static Typecho_support instance;
