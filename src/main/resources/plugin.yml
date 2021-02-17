@@ -1,0 +1,11 @@
+name: Typecho_support
+version: ${project.version}
+main: github.clemens_mine.typecho_support.Typecho_support
+api-version: 1.16
+authors: [ Clemens_Mine ]
+description: typecho白名单验证机制
+website: https://www.logcraft.top
+commands:
+  tlist:
+    description: "白名单插件主命令"
+    usage: "/tlist"

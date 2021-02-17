@@ -1,0 +1,31 @@
+# Typecho数据库设置
+Mysql:
+  # 库名
+  database: ''
+  # Typecho表项前缀
+  prefix: 'typecho_'
+  # 数据库地址 例如：localhost:3306
+  address: ''
+  # 用户名
+  username: 'root'
+  # 密码
+  password: ''
+
+# 设置
+Settings:
+  # 是否开启白名单
+  # true开启 false关闭
+  enable: true
+  # 用户权限（未达到权限将列为不是白名单）
+  # 目前仅支持
+  # 管理员 administrator
+  # 编辑 editor
+  # 贡献者 contributor
+  # 关注者 subscriber
+  group: 'contributor'
+
+#语言
+Messages:
+  not-in-list:
+    - '§c您尚未在服务器官网注册账号，或权限组未达标'
+    - '§a请先注册账号并达到相应权限组'
