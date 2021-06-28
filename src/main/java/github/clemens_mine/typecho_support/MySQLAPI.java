@@ -14,23 +14,25 @@ public class MySQLAPI {
     String pwd;
     String database;
     String SqlTable;
+    Boolean SSL;
 
     Connection conn = null;
     Statement statement = null;
     ResultSet rs = null;
     PreparedStatement ps = null;
 
-    public MySQLAPI(String url, String name, String password, String base,String table){
+    public MySQLAPI(String url, String name, String password, String base, Boolean useSSL, String table){
         this.url = url;
         this.username = name;
         this.pwd = password;
         this.database = base;
         this.SqlTable = table;
+        this.SSL = useSSL;
     }
 
     public void connect(){
         try{
-            this.conn = DriverManager.getConnection("jdbc:mysql://" + this.url + "/" + this.database + "?useUnicode=true&characterEncoding=utf-8",this.username,this.pwd);
+            this.conn = DriverManager.getConnection("jdbc:mysql://" + this.url + "/" + this.database + "?useUnicode=true&characterEncoding=utf-8&useSSL=" + this.SSL,this.username,this.pwd);
             this.statement = this.conn.createStatement();
             this.ps = this.conn.prepareStatement("");
         }catch(SQLException e){

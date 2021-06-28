@@ -18,6 +18,7 @@ public class function {
     static String pwd;
     static String group;
     static Boolean enable;
+    static Boolean useSSL;
     static List<String> kickmsg;
     static Boolean result = false;
     static int permission;
@@ -35,7 +36,7 @@ public class function {
      */
     public static Boolean judge(String name, String gp){
 
-        MySQLAPI api = new MySQLAPI(address,username,pwd,database,prefix + "users");
+        MySQLAPI api = new MySQLAPI(address,username,pwd,database, useSSL,prefix + "users");
         permission = getWeight(gp);
         int cache;
 
@@ -90,6 +91,7 @@ public class function {
         address = Typecho_support.instance.getConfig().getString("Mysql.address");
         username = Typecho_support.instance.getConfig().getString("Mysql.username");
         pwd = Typecho_support.instance.getConfig().getString("Mysql.password");
+        useSSL = Typecho_support.instance.getConfig().getBoolean("Mysql.useSSL");
         group = Typecho_support.instance.getConfig().getString("Settings.group");
         enable = Typecho_support.instance.getConfig().getBoolean("Settings.enable");
         kickmsg = Typecho_support.instance.getConfig().getStringList("Messages.not-in-list");

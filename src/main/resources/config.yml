@@ -10,6 +10,8 @@ Mysql:
   username: 'root'
   # 密码
   password: ''
+  # 使用SSL
+  useSSL: false
 
 # 设置
 Settings:
