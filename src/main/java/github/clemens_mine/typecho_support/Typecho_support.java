@@ -6,8 +6,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerLoginEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.Locale;
-
 /**
  * @author ClemensMine
  */
@@ -30,18 +28,19 @@ public final class Typecho_support extends JavaPlugin implements Listener {
     @EventHandler
     public void playerLoginEvent(PlayerLoginEvent e){
         Player p = e.getPlayer();
-        if(!function.enable || function.whiteList.contains(p.getName().toLowerCase(Locale.ROOT))) {
+        if(!function.enable ||
+                function.whiteList.contains(p.getName().toLowerCase()) ||
+                function.judge(p.getName(),function.group)) {
             return;
         }
 
-        if(!function.judge(p.getName(),function.group)){
-            StringBuilder stringBuilder = new StringBuilder();
-            for(String msg : function.kickmsg){
-                stringBuilder.append(msg.replace("&","§")).append("\n");
-            }
-            e.setKickMessage(stringBuilder.toString());
-            e.setResult(PlayerLoginEvent.Result.KICK_WHITELIST);
+        StringBuilder stringBuilder = new StringBuilder();
+        for(String msg : function.kickmsg){
+            stringBuilder.append(msg.replace("&","§")).append("\n");
         }
+        e.setKickMessage(stringBuilder.toString());
+        e.setResult(PlayerLoginEvent.Result.KICK_WHITELIST);
+
     }
 
     @Override
